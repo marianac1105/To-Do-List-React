@@ -1,4 +1,5 @@
 import React, {useState} from  "react"
+import ListItem from "./ListItem"
 
 export default function Form (){
     const [item, setItem] = useState({currentItem: "",
@@ -21,6 +22,7 @@ list: []})
     
   }
 
+  const {list} = item
     return (
         <div className="container">
           <div className="heading">
@@ -34,8 +36,10 @@ list: []})
           </div>
           <div>
             <ul>
-            {item.list.map(props => {
-                return <li>{props} </li>
+            {list.map(textItem => {
+                return <ListItem
+                text = {textItem} />
+            
             })
             }
             </ul>
